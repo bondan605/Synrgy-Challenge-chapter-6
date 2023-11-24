@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.movies_ch6_binar.ui.Home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_favoriteMovieFragment"
+            app:destination="@id/favoriteMovieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.movies_ch6_binar.ui.ProfileUser.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/favoriteMovieFragment"
+        android:name="com.example.movies_ch6_binar.ui.FavoriteMovie.FavoriteMovieFragment"
+        android:label="fragment_favorite_movie"
+        tools:layout="@layout/fragment_favorite_movie" >
+        <argument
+            android:name="UserId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_favoriteMovieFragment_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailMovieFragment"
+        android:name="com.example.movies_ch6_binar.ui.DetailMovie.DetailMovieFragment"
+        android:label="fragment_detail_movie"
+        tools:layout="@layout/fragment_detail_movie" >
+        <action
+            android:id="@+id/action_detailMovieFragment_to_favoriteMovieFragment"
+            app:destination="@id/favoriteMovieFragment" />
+        <argument
+            android:name="UserId"
+            app:argType="integer" />
+        <argument
+            android:name="Mov"
+            app:argType="com.example.movies_ch6_binar.Models.model.Movie" />
+    </fragment>
+</navigation>
